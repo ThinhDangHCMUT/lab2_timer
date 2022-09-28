@@ -185,9 +185,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  setTimer1(100);
+  setTimer2(50);
+  int dot = 0;
   while (1)
   {
+	  //BLINK 2 LED
+	  if(dot == 0){
+		  HAL_GPIO_WritePin(GPIOA, DOT_Pin, RESET);
+	  }
 
 
     /* USER CODE END WHILE */
@@ -291,14 +297,17 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_Pin|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, DOT_Pin|LED_Pin|EN0_Pin|EN1_Pin
+                          |EN2_Pin|EN3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
                           |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : LED_Pin PA6 PA7 */
-  GPIO_InitStruct.Pin = LED_Pin|GPIO_PIN_6|GPIO_PIN_7;
+  /*Configure GPIO pins : DOT_Pin LED_Pin EN0_Pin EN1_Pin
+                           EN2_Pin EN3_Pin */
+  GPIO_InitStruct.Pin = DOT_Pin|LED_Pin|EN0_Pin|EN1_Pin
+                          |EN2_Pin|EN3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -319,28 +328,6 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
 	timerRun();
-//	counter--;
-//	if(counter <= 0){
-//		counter = 50;
-//		HAL_GPIO_TogglePin ( GPIOA , LED_Pin ) ;
-//		switch(status){
-//			case 0:
-//				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_6 , SET);
-//				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_7 , RESET);
-//				SevenSegment_Update(1);
-//				status = 1;
-//				break;
-//			case 1:
-//				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_6 , RESET);
-//				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_7 , SET);
-//				status = 0;
-//				break;
-//			default : break;
-//		}
-//		if(cnt == 10) cnt = 0;
-//		SevenSegment_Update(cnt++);
-//
-//	}
 
 }
 
