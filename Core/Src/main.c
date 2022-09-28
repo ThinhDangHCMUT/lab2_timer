@@ -185,28 +185,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int status = 0;
-  setTimer1(50);
+
   while (1)
   {
-	  if(timer1_flag == 1){
-		  setTimer1(50);
-		  switch(status){
-		  			case 0:
-		  				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_6 , SET);
-		  				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_7 , RESET);
-		  				SevenSegment_Update(1);
-		  				status = 1;
-		  				break;
-		  			case 1:
-		  				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_6 , RESET);
-		  				HAL_GPIO_WritePin( GPIOA , GPIO_PIN_7 , SET);
-		  				SevenSegment_Update(4);
-		  				status = 0;
-		  				break;
-		  			default : break;
-		 }
-	  }
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
