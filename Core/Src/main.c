@@ -25,6 +25,7 @@
 #include "software_timer.h"
 #include "7led.h"
 #include  "fsm_automatic.h"
+#include "update7led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,69 +97,32 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(100);
-  setTimer2(50);
-  int dot = 0;
-  int seg_status = 0;
+  setTimer2(100);
+  int index_led = 0;
   while (1)
   {
 	  //BLINK 2 LED
-	  if(timer1_flag == 1){
-		  SevenSegment_Update(10);
-		  setTimer1(100);
-		  switch(dot){
-		  case 0:
-			  HAL_GPIO_WritePin(GPIOA, DOT_Pin, RESET);
-			  dot = 1;
-			  break;
-		  case 1:
-		      HAL_GPIO_WritePin(GPIOA, DOT_Pin, SET);
-		      dot = 0;
-		      break;
-		  default: break;
-		  }
-	  }
+//	  if(timer1_flag == 1){
+//		  SevenSegment_Update(10);
+//		  setTimer1(100);
+//		  switch(dot){
+//		  case 0:
+//			  HAL_GPIO_WritePin(GPIOA, DOT_Pin, RESET);
+//			  dot = 1;
+//			  break;
+//		  case 1:
+//		      HAL_GPIO_WritePin(GPIOA, DOT_Pin, SET);
+//		      dot = 0;
+//		      break;
+//		  default: break;
+//		  }
+//	  }
 
 	  if(timer2_flag == 1){
-		  	  SevenSegment_Update(10);
-	  		  setTimer2(50);
-	  		  switch(seg_status){
-	  		  case 0:
-	  			  HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-	  			  HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
-	  			  SevenSegment_Update(1);
-	  			  seg_status = 1;
-	  			  break;
-	  		  case 1:
-	  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-	  			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-	  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, RESET);
-	  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-	  			  SevenSegment_Update(2);
-	  		      seg_status = 2;
-	  		      break;
-	  		  case 2:
-	  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-	  			HAL_GPIO_WritePin(GPIOA, EN2_Pin, RESET);
-	  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-	  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-	  			SevenSegment_Update(3);
-	  			  seg_status = 3;
-	  			  break;
-	  		  case 3:
-	  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, RESET);
-	  		    HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-	  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-	  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-	  			SevenSegment_Update(4);
-	  			  seg_status = 0;
-	  			  break;
-	  		  default:
-	  			  SevenSegment_Update(10);
-	  			  break;
-	  		  }
+		  	  //SevenSegment_Update(10);
+	  		  setTimer2(100);
+	  		  update7SEG(index_led++);
+	  		  if(index_led == 4) index_led = 0;
 	  	  }
 
 
