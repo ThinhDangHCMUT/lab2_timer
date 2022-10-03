@@ -59,7 +59,158 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+int led_buffer[10] = {0,1,2,3,4,5,6,7,8,9};
+void setHour(int hour){
+	if(hour == 0){
+		HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+		HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+	    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+		HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+	    SevenSegment_Update(led_buffer[hour]);
+	}
+	if(hour == 1){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 2){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 3){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 4){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 5){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 6){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 7){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 8){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 9){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+}
 
+void setMin(int min){
+	min = min/5;
+	if(min == 0){
+		HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+		HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+	    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+		HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+	    SevenSegment_Update(led_buffer[hour]);
+	}
+	if(min == 1){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 2){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 3){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 4){
+			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+		    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+		    SevenSegment_Update(led_buffer[hour]);
+		}
+	if(hour == 5){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 6){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 7){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 8){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+	if(hour == 9){
+				HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+			    HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+				HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			    SevenSegment_Update(led_buffer[hour]);
+			}
+}
+
+
+void updateClockBuffer (){
+
+}
 /* USER CODE END 0 */
 
 /**
@@ -97,34 +248,25 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer2(1);
-  int index_led = 0;
+  setTimer1(100);
   while (1)
   {
-	  //BLINK 2 LED
-//	  if(timer1_flag == 1){
-//		  SevenSegment_Update(10);
-//		  setTimer1(100);
-//		  switch(dot){
-//		  case 0:
-//			  HAL_GPIO_WritePin(GPIOA, DOT_Pin, RESET);
-//			  dot = 1;
-//			  break;
-//		  case 1:
-//		      HAL_GPIO_WritePin(GPIOA, DOT_Pin, SET);
-//		      dot = 0;
-//		      break;
-//		  default: break;
-//		  }
-//	  }
 
-	  if(timer2_flag == 1){
-		  	  //SevenSegment_Update(10);
-	  		  setTimer2(1);
-	  		  update7SEG(index_led++);
-	  		  if(index_led == 4) index_led = 0;
-	  	  }
+	    second ++;
+	   if ( second >= 60) {
+		   second = 0;
+		   minute ++;
+	   }
+	   if( minute >= 60) {
+	    minute = 0;
+	    hour ++;
+	   }
+	   if( hour >=24) {
+	   hour = 0;
+	   }
+	   updateClockBuffer (){
 
+	   }
 
     /* USER CODE END WHILE */
 
