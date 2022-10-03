@@ -97,7 +97,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer2(100);
+  setTimer2(1);
   int index_led = 0;
   while (1)
   {
@@ -120,7 +120,7 @@ int main(void)
 
 	  if(timer2_flag == 1){
 		  	  //SevenSegment_Update(10);
-	  		  setTimer2(100);
+	  		  setTimer2(1);
 	  		  update7SEG(index_led++);
 	  		  if(index_led == 4) index_led = 0;
 	  	  }
