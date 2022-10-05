@@ -258,14 +258,11 @@ int main(void)
 		   minute ++;
 	   }
 	   if( minute >= 60) {
-	    minute = 0;
-	    hour ++;
+		   minute = 0;
+		   hour ++;
 	   }
 	   if( hour >=24) {
-	   hour = 0;
-	   }
-	   updateClockBuffer (){
-
+		   hour = 0;
 	   }
 
     /* USER CODE END WHILE */
