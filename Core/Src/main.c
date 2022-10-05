@@ -101,22 +101,7 @@ int main(void)
   int index_led = 0;
   while (1)
   {
-	  //BLINK 2 LED
-//	  if(timer1_flag == 1){
-//		  SevenSegment_Update(10);
-//		  setTimer1(100);
-//		  switch(dot){
-//		  case 0:
-//			  HAL_GPIO_WritePin(GPIOA, DOT_Pin, RESET);
-//			  dot = 1;
-//			  break;
-//		  case 1:
-//		      HAL_GPIO_WritePin(GPIOA, DOT_Pin, SET);
-//		      dot = 0;
-//		      break;
-//		  default: break;
-//		  }
-//	  }
+
 
 	  if(timer2_flag == 1){
 		  	  //SevenSegment_Update(10);
@@ -189,7 +174,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 7999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 9;
+  htim2.Init.Period = 999;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
