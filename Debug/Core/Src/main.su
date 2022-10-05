@@ -1,9 +1,9 @@
-main.c:62:6:setHour	80	static
+main.c:63:6:setHour	88	static
 main.c:137:6:setMin	16	static
 main.c:214:6:updateClockBuffer	4	static
 main.c:223:5:main	8	static
-main.c:285:6:SystemClock_Config	72	static
-main.c:321:13:MX_TIM2_Init	32	static
-main.c:366:13:MX_GPIO_Init	32	static
-main.c:403:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:415:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:286:6:SystemClock_Config	72	static
+main.c:322:13:MX_TIM2_Init	32	static
+main.c:367:13:MX_GPIO_Init	32	static
+main.c:404:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:416:6:Error_Handler	4	static,ignoring_inline_asm

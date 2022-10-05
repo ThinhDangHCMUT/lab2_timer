@@ -38,7 +38,6 @@ void update7SEG (int index) {
 		  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
 		  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
 		  			SevenSegment_Update(led_buffer[index]);
-		  			//index = -1;
 		  			  break;
 		  		  default:
 		  			  //SevenSegment_Update(index);

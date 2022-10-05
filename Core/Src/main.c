@@ -60,13 +60,13 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void setHour(int hour){
+void setHour(int hour, int signal0, int signal1){
 	int led_buffer[13] = {0,1,2,3,4,5,6,7,8,9,10,11,12};
 	if(hour == 12){
 			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
 			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-			HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+			HAL_GPIO_WritePin(GPIOA, EN1_Pin, signal1);
+			HAL_GPIO_WritePin(GPIOA, EN0_Pin, signal0);
             SevenSegment_Update(led_buffer[hour]);
 	}
 	if(hour == 1){
@@ -267,7 +267,8 @@ int main(void)
 //		   if( hour >=24) {
 //			   hour = 0;
 //		   }
-	  	   setHour(12);
+	  	   setHour(12/10,0,1);
+	  	   setHour(12%10,0,1);
 		   setTimer1(100);
 	  	 }
 
