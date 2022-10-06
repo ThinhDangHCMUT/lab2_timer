@@ -104,6 +104,39 @@ void update7SEG (int index) {
 		  			  break;
 		  		  }
  }
+
+
+const int MAX_LED_MATRIX = 8;
+ int index_led_matrix = 0;
+ uint8_t matrix_buffer [8] = {0x01 , 0x02 , 0x03 , 0x04 , 0x05 , 0x06 , 0x07 , 0x08 };
+ void updateLEDMatrix (int index ) {
+ switch ( index ) {
+ case 0:
+ break ;
+ case 1:
+ break ;
+
+ case 2:
+ break ;
+ case 3:
+ break ;
+ case 4:
+ break ;
+ case 5:
+ break ;
+ case 6:
+ break ;
+ case 7:
+ break ;
+ default :
+ break ;
+ }
+ }
+
+
+
+
+
 /* USER CODE END 0 */
 
 /**
@@ -137,6 +170,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT (& htim2) ;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -298,7 +332,6 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback ( TIM_HandleTypeDef * htim )
 {
 	timerRun();
-
 }
 
 /* USER CODE END 4 */
