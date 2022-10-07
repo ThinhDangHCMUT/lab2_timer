@@ -97,40 +97,19 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer2(100);
+  setTimer1(100);
   int index_led = 0;
   while (1)
   {
-	  //BLINK 2 LED
-//	  if(timer1_flag == 1){
-//		  SevenSegment_Update(10);
-//		  setTimer1(100);
-//		  switch(dot){
-//		  case 0:
-//			  HAL_GPIO_WritePin(GPIOA, DOT_Pin, RESET);
-//			  dot = 1;
-//			  break;
-//		  case 1:
-//		      HAL_GPIO_WritePin(GPIOA, DOT_Pin, SET);
-//		      dot = 0;
-//		      break;
-//		  default: break;
-//		  }
-//	  }
-
 	  if(timer2_flag == 1){
-		  	  //SevenSegment_Update(10);
-	  		  setTimer2(100);
+	  		  setTimer1(100);
 	  		  update7SEG(index_led++);
 	  		  if(index_led == 4) index_led = 0;
 	  	  }
 
-
     /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
 }
 
 /**

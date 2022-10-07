@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0002001c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000087c0  00000000  00000000  00020045  2**0
+ 12 .debug_info   000087bc  00000000  00000000  00020045  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000017e3  00000000  00000000  00028805  2**0
+ 13 .debug_abbrev 000017c7  00000000  00000000  00028801  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000009a0  00000000  00000000  00029fe8  2**3
+ 14 .debug_aranges 000009a0  00000000  00000000  00029fc8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008c8  00000000  00000000  0002a988  2**3
+ 15 .debug_ranges 000008c8  00000000  00000000  0002a968  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000165c2  00000000  00000000  0002b250  2**0
+ 16 .debug_macro  000165c2  00000000  00000000  0002b230  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000a062  00000000  00000000  00041812  2**0
+ 17 .debug_line   0000a060  00000000  00000000  000417f2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081d0e  00000000  00000000  0004b874  2**0
+ 18 .debug_str    00081d0e  00000000  00000000  0004b852  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cd582  2**0
+ 19 .comment      00000053  00000000  00000000  000cd560  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026bc  00000000  00000000  000cd5d8  2**2
+ 20 .debug_frame  000026bc  00000000  00000000  000cd5b4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -584,17 +584,13 @@ int main(void)
   int index_led = 0;
  80004ce:	2300      	movs	r3, #0
  80004d0:	607b      	str	r3, [r7, #4]
-//		      break;
-//		  default: break;
-//		  }
-//	  }
-
+  while (1)
+  {
 	  if(timer2_flag == 1){
  80004d2:	4b0a      	ldr	r3, [pc, #40]	; (80004fc <main+0x50>)
  80004d4:	681b      	ldr	r3, [r3, #0]
  80004d6:	2b01      	cmp	r3, #1
  80004d8:	d1fb      	bne.n	80004d2 <main+0x26>
-		  	  //SevenSegment_Update(10);
 	  		  setTimer2(100);
  80004da:	2064      	movs	r0, #100	; 0x64
  80004dc:	f000 f8fc 	bl	80006d8 <setTimer2>
