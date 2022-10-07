@@ -141,7 +141,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(10);
+  setTimer1(25);
   int index = 0;
   hour = 15; minute = 8; second = 50;
   while (1)
@@ -162,7 +162,7 @@ int main(void)
 		   updateClockBuffer();
 	  	   update7SEG(index++);
 	  	   if(index == 4) index = 0;
-	  	   setTimer1(10);
+	  	   setTimer1(25);
 	  	 }
 
 

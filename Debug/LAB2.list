@@ -795,8 +795,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(10);
- 800066c:	200a      	movs	r0, #10
+  setTimer1(25);
+ 800066c:	2019      	movs	r0, #25
  800066e:	f000 f93d 	bl	80008ec <setTimer1>
   int index = 0;
  8000672:	2300      	movs	r3, #0
@@ -883,8 +883,8 @@ int main(void)
  80006f2:	d101      	bne.n	80006f8 <main+0xa8>
  80006f4:	2300      	movs	r3, #0
  80006f6:	607b      	str	r3, [r7, #4]
-	  	   setTimer1(10);
- 80006f8:	200a      	movs	r0, #10
+	  	   setTimer1(25);
+ 80006f8:	2019      	movs	r0, #25
  80006fa:	f000 f8f7 	bl	80008ec <setTimer1>
 	  	 if(timer1_flag == 1){
  80006fe:	e7c3      	b.n	8000688 <main+0x38>
