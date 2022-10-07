@@ -193,18 +193,22 @@ int main(void)
 		  setTimer1(50);
 		  switch(status){
 		  			case 0:
-		  				HAL_GPIO_WritePin( GPIOA , EN0_Pin , SET);
-		  				HAL_GPIO_WritePin( GPIOA , EN1_Pin , RESET);
+		  				HAL_GPIO_WritePin( GPIOA , EN0_Pin , RESET);
+		  				HAL_GPIO_WritePin( GPIOA , EN1_Pin , SET);
 		  				SevenSegment_Update(1);
 		  				status = 1;
 		  				break;
 		  			case 1:
-		  				HAL_GPIO_WritePin( GPIOA , EN0_Pin , RESET);
-		  				HAL_GPIO_WritePin( GPIOA , EN1_Pin , SET);
+		  				HAL_GPIO_WritePin( GPIOA , EN0_Pin , SET);
+		  				HAL_GPIO_WritePin( GPIOA , EN1_Pin , RESET);
 		  				SevenSegment_Update(4);
 		  				status = 0;
 		  				break;
-		  			default : break;
+		  			default:
+		  				HAL_GPIO_WritePin( GPIOA , EN0_Pin , SET);
+		  				HAL_GPIO_WritePin( GPIOA , EN1_Pin , SET);
+		  				status = 0;
+		  				break;
 		 }
 	  }
     /* USER CODE END WHILE */
