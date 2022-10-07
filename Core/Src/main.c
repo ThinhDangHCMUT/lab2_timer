@@ -104,7 +104,6 @@ int main(void)
   {
 	  //BLINK 2 LED
 	  if(timer1_flag == 1){
-		  SevenSegment_Update(10);
 		  setTimer1(100);
 		  switch(dot){
 		  case 0:
@@ -120,7 +119,6 @@ int main(void)
 	  }
 
 	  if(timer2_flag == 1){
-		  	  SevenSegment_Update(10);
 	  		  setTimer2(50);
 	  		  switch(seg_status){
 	  		  case 0:
@@ -152,11 +150,14 @@ int main(void)
 	  		    HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
 	  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
 	  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-	  			SevenSegment_Update(4);
+	  			SevenSegment_Update(0);
 	  			  seg_status = 0;
 	  			  break;
 	  		  default:
-	  			  SevenSegment_Update(10);
+	  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
+	  			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+	  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+	  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
 	  			  break;
 	  		  }
 	  	  }
