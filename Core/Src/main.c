@@ -109,6 +109,7 @@ int main(void)
 	  	 if(timer1_flag == 1){
 	  		setTimer1(2);
 	  		updateLedBuffer();
+	  		updateLedBuffer_animation();
 	  		if( index_led_matrix > 7) index_led_matrix = 0;
 	  		updateLEDMatrix(index_led_matrix++) ;
 	  	 }
