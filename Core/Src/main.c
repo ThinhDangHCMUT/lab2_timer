@@ -103,12 +103,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   index_led_matrix = 0;
+  shift = 0;
   setTimer1(2);
   while (1)
   {
 	  	 if(timer1_flag == 1){
 	  		setTimer1(2);
-	  		updateLedBuffer();
+	  		//updateLedBuffer();
 	  		updateLedBuffer_animation();
 	  		if( index_led_matrix > 7) index_led_matrix = 0;
 	  		updateLEDMatrix(index_led_matrix++) ;

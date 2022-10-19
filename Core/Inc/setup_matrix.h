@@ -17,5 +17,6 @@ void updateLEDMatrix(int index);
 
 void updateLedBuffer();
 
+void updateLedBuffer_animation();
 
 #endif /* INC_SETUP_MATRIX_H_ */

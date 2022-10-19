@@ -46,14 +46,14 @@ void updateLedBuffer()
 void updateLedBuffer_animation()
 {
 shift = shift % 8;
-matrix_buffer [7] = A_value [(7+ shift ) %8];
-matrix_buffer [6] = A_value [(6+ shift ) %8];
-matrix_buffer [5] = A_value [(5+ shift ) %8];
-matrix_buffer [4] = A_value [(4+ shift ) %8];
-matrix_buffer [3] = A_value [(3+ shift ) %8];
-matrix_buffer [2] = A_value [(2+ shift ) %8];
-matrix_buffer [1] = A_value [(1+ shift ) %8];
-matrix_buffer [0] = A_value [(0+ shift ) %8];
+matrix_buffer [7] = A_value [(7 + shift ) %8];
+matrix_buffer [6] = A_value [(6 + shift ) %8];
+matrix_buffer [5] = A_value [(5 + shift ) %8];
+matrix_buffer [4] = A_value [(4 + shift ) %8];
+matrix_buffer [3] = A_value [(3 + shift ) %8];
+matrix_buffer [2] = A_value [(2 + shift ) %8];
+matrix_buffer [1] = A_value [(1 + shift ) %8];
+matrix_buffer [0] = A_value [(0 + shift ) %8];
 }
 
 

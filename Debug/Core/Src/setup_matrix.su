@@ -1,4 +1,5 @@
 setup_matrix.c:11:6:clearMatrixLed	8	static
 setup_matrix.c:22:6:updateDisplayMatrixLed	16	static
 setup_matrix.c:33:6:updateLedBuffer	4	static
-setup_matrix.c:46:7:updateLEDMatrix	16	static
+setup_matrix.c:46:6:updateLedBuffer_animation	4	static
+setup_matrix.c:61:7:updateLEDMatrix	16	static

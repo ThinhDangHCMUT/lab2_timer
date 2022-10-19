@@ -13,7 +13,7 @@
 #define MAX_LED_MATRIX   8
 
 int index_led_matrix;
-
+int shift;
 uint8_t matrix_buffer[MAX_LED_MATRIX];
 
 uint8_t A_value[MAX_LED_MATRIX];
