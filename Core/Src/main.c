@@ -108,6 +108,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   setTimer1(25);
+  setTimer2(10);
   int index = 0;
   while (1)
   {
@@ -129,6 +130,21 @@ int main(void)
 	  	   if(index == 4) index = 0;
 	  	   setTimer1(25);
 	  	 }
+
+	  	 if(timer2_flag == 1){
+	  			  setTimer2(50);
+	  			  switch(dot){
+	  			  case 0:
+	  				  HAL_GPIO_WritePin(GPIOA, DOT_Pin, RESET);
+	  				  dot = 1;
+	  				  break;
+	  			  case 1:
+	  			      HAL_GPIO_WritePin(GPIOA, DOT_Pin, SET);
+	  			      dot = 0;
+	  			      break;
+	  			  default: break;
+	  			  }
+	  		  }
 
 
     /* USER CODE END WHILE */
