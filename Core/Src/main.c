@@ -25,6 +25,8 @@
 #include "software_timer.h"
 #include "7led.h"
 #include  "fsm_automatic.h"
+#include "global.h"
+#include "setup_matrix.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,83 +60,6 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t hour, minute, second;
-
-
-uint8_t led_buffer[4] = {1,5,0,8};
-void updateClockBuffer (){
-	led_buffer[0] = hour/10;
-	led_buffer[1] = hour%10;
-	led_buffer[2] = minute/10;
-	led_buffer[3] = minute%10;
-}
-
-void update7SEG (int index) {
-		switch(index){
-		  		  case 0:
-		  			  HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-		  			  HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-		  			  HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-		  			  HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
-		  			  SevenSegment_Update(led_buffer[index]);
-		  			  break;
-		  		  case 1:
-		  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, RESET);
-		  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-		  			  SevenSegment_Update(led_buffer[index]);
-		  		      break;
-		  		  case 2:
-		  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN2_Pin, RESET);
-		  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-		  			SevenSegment_Update(led_buffer[index]);
-		  			  break;
-		  		  case 3:
-		  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, RESET);
-		  		    HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-		  			SevenSegment_Update(led_buffer[index]);
-		  			  break;
-		  		  default:
-		  			  //SevenSegment_Update(index);
-		  			  break;
-		  		  }
- }
-
-
-const int MAX_LED_MATRIX = 8;
- int index_led_matrix = 0;
- uint8_t matrix_buffer [8] = {0x01 , 0x02 , 0x03 , 0x04 , 0x05 , 0x06 , 0x07 , 0x08 };
- void updateLEDMatrix (int index ) {
- switch ( index ) {
-	 case 0:
-
-		 break ;
-	 case 1:
-		 break ;
-
-	 case 2:
-		 break ;
-	 case 3:
-		 break ;
-	 case 4:
-		 break ;
-	 case 5:
-		 break ;
-	 case 6:
-		 break ;
-	 case 7:
-		 break ;
-	 default :
-		 break ;
- }
-}
-
-
 
 
 
@@ -176,28 +101,16 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(10);
-  int index = 0;
-  hour = 15; minute = 8; second = 50;
+
+  index_led_matrix = 0;
+  setTimer1(2);
   while (1)
   {
 	  	 if(timer1_flag == 1){
-	  		   second ++;
-		   if ( second >= 60) {
-			   second = 0;
-			   minute ++;
-		   }
-		   if( minute >= 60) {
-			   minute = 0;
-			   hour ++;
-		   }
-		   if( hour >=24) {
-			   hour = 0;
-		   }
-		   updateClockBuffer();
-	  	   update7SEG(index++);
-	  	   if(index == 4) index = 0;
-	  	   setTimer1(10);
+	  		setTimer1(2);
+	  		updateLedBuffer();
+	  		if( index_led_matrix > 7) index_led_matrix = 0;
+	  		updateLEDMatrix(index_led_matrix++) ;
 	  	 }
 
 

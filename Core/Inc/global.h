@@ -4,13 +4,18 @@
  *  Created on: Sep 30, 2022
  *      Author: Thinh Dang
  */
+#include "main.h"
 
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
-#define INIT 			0
-#define AUTO_RED 	 	1
-#define AUTO_GREEN  	2
-#define AUTO_YELLOW 	3
+
+#define MAX_LED_MATRIX   8
+
+int index_led_matrix;
+
+uint8_t matrix_buffer[MAX_LED_MATRIX];
+
+uint8_t A_value[MAX_LED_MATRIX];
 
 #endif /* INC_GLOBAL_H_ */
