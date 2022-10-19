@@ -110,6 +110,7 @@ int main(void)
   setTimer1(25);
   setTimer2(10);
   int index = 0;
+  int dot = 0;
   while (1)
   {
 	  	 if(timer1_flag == 1){
