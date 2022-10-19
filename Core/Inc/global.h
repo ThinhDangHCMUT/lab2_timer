@@ -8,9 +8,11 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
-#define INIT 			0
-#define AUTO_RED 	 	1
-#define AUTO_GREEN  	2
-#define AUTO_YELLOW 	3
+#define MAX_LED   4
+
+int led_buffer[MAX_LED];
+
+int hour, minute, second;
+
 
 #endif /* INC_GLOBAL_H_ */

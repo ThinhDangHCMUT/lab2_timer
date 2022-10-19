@@ -25,6 +25,8 @@
 #include "software_timer.h"
 #include "7led.h"
 #include  "fsm_automatic.h"
+#include "global.h"
+#include "update7led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -58,10 +60,8 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t hour, minute, second;
 
 
-uint8_t led_buffer[4] = {1,5,0,8};
 void updateClockBuffer (){
 	led_buffer[0] = hour/10;
 	led_buffer[1] = hour%10;
@@ -69,41 +69,7 @@ void updateClockBuffer (){
 	led_buffer[3] = minute%10;
 }
 
-void update7SEG (int index) {
-		switch(index){
-		  		  case 0:
-		  			  HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-		  			  HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-		  			  HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-		  			  HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
-		  			  SevenSegment_Update(led_buffer[index]);
-		  			  break;
-		  		  case 1:
-		  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, RESET);
-		  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-		  			  SevenSegment_Update(led_buffer[index]);
-		  		      break;
-		  		  case 2:
-		  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN2_Pin, RESET);
-		  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-		  			SevenSegment_Update(led_buffer[index]);
-		  			  break;
-		  		  case 3:
-		  			HAL_GPIO_WritePin(GPIOA, EN3_Pin, RESET);
-		  		    HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
-		  			HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
-		  			SevenSegment_Update(led_buffer[index]);
-		  			  break;
-		  		  default:
-		  			  //SevenSegment_Update(index);
-		  			  break;
-		  		  }
- }
+
 /* USER CODE END 0 */
 
 /**
@@ -143,7 +109,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer1(25);
   int index = 0;
-  hour = 15; minute = 8; second = 50;
   while (1)
   {
 	  	 if(timer1_flag == 1){

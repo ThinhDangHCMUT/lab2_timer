@@ -6,4 +6,8 @@
  */
 
 #include "global.h"
-int status;
+
+led_buffer[MAX_LED] = {1,5,0,8};
+
+hour = 15; minute = 8; second = 50;
+
